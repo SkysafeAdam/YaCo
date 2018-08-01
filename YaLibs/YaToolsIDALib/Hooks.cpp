@@ -390,7 +390,7 @@ namespace
     void loader_finished(Hooks& /*hooks*/, va_list args)
     {
         const auto li           = va_arg(args, linput_t*);
-        const auto neflags      = va_arg(args, uint16_t);
+        const auto neflags      = va_arg(args, int);
         const auto filetypename = va_arg(args, const char*);
         LOG_IDB_EVENT("loader_finished: neflags 0x%x filetypename %s", neflags, filetypename);
         UNUSED(li);
@@ -968,7 +968,7 @@ namespace
         const auto regnum       = va_arg(args, int);
         const auto value        = va_arg(args, sel_t);
         const auto old_value    = va_arg(args, sel_t);
-        const auto tag          = va_arg(args, uchar);
+        const auto tag          = va_arg(args, int);
         LOG_IDB_EVENT("sgr_changed: 0x%" PRIXEA "-0x%" PRIXEA " regnum %d value 0x%" PRIXEA ":0x%" PRIXEA " tag 0x%x", start_ea, end_ea, regnum, old_value, value, tag);
     }
 
